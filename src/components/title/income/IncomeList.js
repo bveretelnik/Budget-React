@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import IncomeItem from "./IncomeItem";
 
 function IncomeList() {
-  const { incomeList: incomes } = useSelector((state) => state.appReducer);
+  const { incomeList: incomes } = useSelector((state) => state.expenseReducer);
   return (
     <>
       <ul className="list-group mt-3 mb-3">

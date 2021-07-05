@@ -25,7 +25,7 @@ function AddIncomeForm() {
       </div>
       <div className="row mt-3">
         <div className="col-sm">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-outline-primary">
             Save
           </button>
         </div>

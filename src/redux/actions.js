@@ -20,27 +20,28 @@ export const fetchExpense = () => {
   };
 };
 
-export const addExpense = async (expense) => {
-  try {
-    const res = await axios.post(`${url}/expenses.json`, expense);
-    const payload = {
-      ...expense,
-      id: res.data.name,
-    };
-    console.log(payload);
-    return {
-      type: ADD_EXPENSE,
-      payload,
-    };
-  } catch (error) {
-    console.log(error);
-  }
+export const addExpense = (expense) => {
+  return async (dispatch) => {
+    try {
+      const res = await axios.post(`${url}/expenses.json`, expense);
+      const payload = {
+        ...expense,
+        id: res.data.name,
+      };
+      return dispatch({
+        type: ADD_EXPENSE,
+        payload,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 };
 
-export const removeExpense = async (id) => {
-  await axios.delete(`${url}/expenses/${id}.json`);
+export const removeExpense = (id) => {
+  return async (dispatch) => {
+    await axios.delete(`${url}/expenses/${id}.json`);
 
-  return (dispatch) => {
     dispatch({
       type: REMOVE_EXPENSE,
       payload: id,

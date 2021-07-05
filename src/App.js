@@ -9,7 +9,7 @@ import IncomeTitle from "./components/title/income/IncomeTitle";
 
 function App() {
   const { expensesList: expenses, budget } = useSelector(
-    (state) => state.appReducer
+    (state) => state.expenseReducer
   );
 
   const expense = expenses.reduce((acc, cur) => {

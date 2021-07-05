@@ -1,18 +1,7 @@
-import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { fetchExpense } from "../../../redux/actions";
+import React from "react";
 import ExpenseItem from "./ExpenseItem";
 
-function ExpenseList() {
-  const dispatch = useDispatch();
-  const { expensesList: expenses } = useSelector((state) => state.appReducer);
-
-  useEffect(() => {
-    console.log(expenses);
-    dispatch(fetchExpense());
-    //eslint-disable-next-line
-  }, []);
-
+function ExpenseList({ expenses }) {
   return (
     <>
       <ul className="list-group mt-3 mb-3">

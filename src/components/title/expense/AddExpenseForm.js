@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-// import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
 import { addExpense } from "../../../redux/actions";
 
@@ -13,8 +13,10 @@ function AddExpenseForm() {
     const expense = {
       name,
       cost: parseInt(cost),
+      key: uuidv4(),
     };
-    dispatch(() => addExpense(expense));
+    dispatch(addExpense(expense));
+
     setName("");
     setCost("");
   };
@@ -46,7 +48,7 @@ function AddExpenseForm() {
       </div>
       <div className="row mt-3">
         <div className="col-sm">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-outline-primary">
             Save
           </button>
         </div>
