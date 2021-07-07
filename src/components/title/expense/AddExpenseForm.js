@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useDispatch } from "react-redux";
-import { addExpense } from "../../../redux/actions";
+import { addExpense, hideAlert, showAlert } from "../../../redux/actions";
 
 function AddExpenseForm() {
   const [name, setName] = useState("");
@@ -16,9 +16,12 @@ function AddExpenseForm() {
       key: uuidv4(),
     };
     dispatch(addExpense(expense));
-
+    dispatch(showAlert());
     setName("");
     setCost("");
+    setTimeout(() => {
+      dispatch(hideAlert());
+    }, 2000);
   };
   return (
     <form onSubmit={handleSubmit}>

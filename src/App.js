@@ -6,6 +6,7 @@ import Expense from "./components/Expense";
 import Remainder from "./components/Remainder";
 import ExpenseTitle from "./components/title/expense/ExpenseTitle";
 import IncomeTitle from "./components/title/income/IncomeTitle";
+import Theme from "./components/Theme";
 
 function App() {
   const { expensesList: expenses, budget } = useSelector(
@@ -23,6 +24,9 @@ function App() {
         <h1 style={{ textAlign: "center" }} className="mt-3 ">
           My Budget
         </h1>
+        <div>
+          <Theme />
+        </div>
         <div className="row mt-3">
           <div className="col-sm">
             <Income budget={budget} />

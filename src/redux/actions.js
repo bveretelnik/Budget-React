@@ -1,5 +1,13 @@
 import axios from "axios";
-import { ADD_EXPENSE, FETCH_EXPENSES, REMOVE_EXPENSE } from "./types";
+import {
+  ADD_EXPENSE,
+  DARK_THEME,
+  FETCH_EXPENSES,
+  HIDE_ALERT,
+  LIGHT_THEME,
+  REMOVE_EXPENSE,
+  SHOW_ALERT,
+} from "./types";
 
 const url = "https://budget-app-react-98168-default-rtdb.firebaseio.com/";
 
@@ -46,5 +54,35 @@ export const removeExpense = (id) => {
       type: REMOVE_EXPENSE,
       payload: id,
     });
+  };
+};
+
+const body = document.querySelector("body");
+
+export const lightTheme = () => {
+  body.style.backgroundColor = "white";
+  body.style.color = "black";
+  return {
+    type: LIGHT_THEME,
+  };
+};
+
+export const darkTheme = () => {
+  body.style.backgroundColor = "black";
+  body.style.color = "white";
+  return {
+    type: DARK_THEME,
+  };
+};
+
+export const showAlert = () => {
+  return {
+    type: SHOW_ALERT,
+  };
+};
+
+export const hideAlert = () => {
+  return {
+    type: HIDE_ALERT,
   };
 };
